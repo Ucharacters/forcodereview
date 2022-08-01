@@ -31,7 +31,7 @@ expected_reply=['\ufeff<!DOCTYPE',
 '<span>tortor™</span>.</a></body>',
 '</html>']
 
-
+print("Start...")
 class TestMethods(unittest.TestCase):
 
     def test_can_get_web_page_from_internet(self):

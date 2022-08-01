@@ -16,7 +16,8 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         query_components = parse_qs(urlparse(self.path).query)
         if 'favicon.ico' in query_components:
-            return None       
+            return None
+        
         if 'processor' in query_components:
             name = query_components["processor"][0]
         
