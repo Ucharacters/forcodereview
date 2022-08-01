@@ -21,6 +21,5 @@ class MyHttpRequestHandler(http.server.SimpleHTTPRequestHandler):
             name = query_components["processor"][0]
         
         html = "<html><head></head><body>"+str(generate_html_response(simple_http_get(name)))+"</body></html>"
-        print(html)
         self.wfile.write(bytes(html, "utf8"))
         return None

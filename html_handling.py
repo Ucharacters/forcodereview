@@ -20,7 +20,8 @@ def word_tokenize(text):
     words = [w.replace('…','') for w in words]
     words = [w.replace('—','') for w in words]
     words = [w.replace('\ufeff','') for w in words]
-    
+
+
     return words
 
 
@@ -44,7 +45,7 @@ def generate_html_response(the_source_web_page) -> str:
     #ко всем словам длиной 6 символов добавляем SPECIAL_CHARACTER        
     for selected_word in filter(is_short_string, words_needed):
         if selected_word is not None and len(str(selected_word)) == 6:
-            selected_word_with_tm_added = str(BeautifulSoup("<span>"+str(selected_word) +SPECIAL_CHARACTER+"</span>", "html.parser"))
+            selected_word_with_tm_added = str(BeautifulSoup("<span>"+str(selected_word) +SPECIAL_CHARACTER+" </span>", "html.parser"))
             the_source_web_page = the_source_web_page.replace(selected_word,selected_word_with_tm_added)
 
     return str(the_source_web_page) 
