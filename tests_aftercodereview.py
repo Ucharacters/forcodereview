@@ -4,9 +4,9 @@ from proxy_server import MyHttpRequestHandler #реализация прокси
 from html_handling import generate_html_response #парсинг веб-страницы и манипуляции со строками
 from proxy_server_config import * #конфигурация прокси-сервера
 
-request="https://raw.githubusercontent.com/Ucharacters/anything/master/21/Python08/test_html_page.html"
-source_page_reply=['<!DOCTYPE', 'html>', '<html>', '<body>', 'Lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 'adipiscing', 'elit,', 'sed', 'do', 'eiusmod', 'tempor.', '<a', 'href="http://mail.ru">', 'suspendisse', 'potenti', 'nullam', 'ac', 'tortor.</a></body>', '</html>']
-expected_reply=['<!DOCTYPE',
+request="https://raw.githubusercontent.com/Ucharacters/forcodereview/main/test_html_page.html"
+source_page_reply=['\ufeff<!DOCTYPE', 'html>', '<html>', '<body>', 'Lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 'adipiscing', 'elit,', 'sed', 'do', 'eiusmod', 'tempor.', '<a', 'href="http://mail.ru">', 'suspendisse', 'potenti', 'nullam', 'ac', 'tortor.</a></body>', '</html>']
+expected_reply=['\ufeff<!DOCTYPE',
 'html>',
 '<html>',
 '<body>',
