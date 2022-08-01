@@ -6,32 +6,8 @@ from proxy_server_config import * #конфигурация прокси-сер�
 
 request="https://raw.githubusercontent.com/Ucharacters/forcodereview/main/test_html_page.html"
 source_page_reply=['\ufeff<!DOCTYPE', 'html>', '<html>', '<body>', 'Lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 'adipiscing', 'elit,', 'sed', 'do', 'eiusmod', 'tempor.', '<a', 'href="http://mail.ru">', 'suspendisse', 'potenti', 'nullam', 'ac', 'tortor.</a></body>', '</html>']
-expected_reply=['\ufeff<!DOCTYPE',
-'html>',
-'<html>',
-'<body>',
-'Lorem',
-'ipsum',
-'dolor',
-'sit',
-'amet,',
-'consectetur',
-'adipiscing',
-'elit,',
-'sed',
-'do',
-'eiusmod',
-'<span>tempor™</span>.',
-'<a',
-'href="http://mail.ru">',
-'suspendisse',
-'potenti',
-'<span>nullam™</span>',
-'ac',
-'<span>tortor™</span>.</a></body>',
-'</html>']
+expected_reply=['\ufeff<!DOCTYPE', 'html>', '<html>', '<body>', 'Lorem', 'ipsum', 'dolor', 'sit', 'amet,', 'consectetur', 'adipiscing', 'elit,', 'sed', 'do', 'eiusmod', '<span>tempor™', '</span>.', '<a', 'href="http://mail.ru">', 'suspendisse', 'potenti', '<span>nullam™', '</span>', 'ac', '<span>tortor™', '</span>.</a></body>', '</html>']
 
-print("Start...")
 class TestMethods(unittest.TestCase):
 
     def test_can_get_web_page_from_internet(self):
@@ -43,7 +19,7 @@ class TestMethods(unittest.TestCase):
         self.assertTrue(len(simple_http_get(PROXY_CONFIG+request)))
         
     def test_html_utilities(self):
-        """Проверка замены слов и возврата HTML"""
+        """Проверка замены слов и возврата HTML через прокси"""
         self.maxDiff=None
         self.assertEqual(generate_html_response(simple_http_get(request)).split(),  expected_reply)
 
