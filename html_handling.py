@@ -1,5 +1,5 @@
-#парсинг веб-страницы и манипуляции со строками
-#from http_get_function import simple_http_get #получение исходной веб-страницы
+﻿#парсинг веб-страницы и манипуляции со строками
+from http_get_function import simple_http_get #получение исходной веб-страницы
 from proxy_server_config import * #конфигурация прокси-сервера
 from bs4 import BeautifulSoup
 from bs4 import SoupStrainer
